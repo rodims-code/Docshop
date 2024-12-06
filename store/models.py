@@ -22,3 +22,6 @@ class product(models.Model) :
     description = models.TextField(blank=True)
     #Pour cree une image
     image = models.ImageField(upload_to = 'Products', blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.name} ({self.stok})"
