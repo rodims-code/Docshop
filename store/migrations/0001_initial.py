@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('price', models.FloatField(default=0.0)),
                 ('stok', models.FloatField(default=0)),
                 ('description', models.TextField(blank=True)),
-                ('image', models.ImageField(blank=True, null=True, upload_to='Products')),
+                ('image', models.ImageField(blank=True, null=True, upload_to='products')),
             ],
         ),
     ]
