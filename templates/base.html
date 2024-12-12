@@ -5,9 +5,13 @@
     <title>La boutique de rodims</title>
 </head>
 <body>
-    <h1>Le site de rodims</h1>
-    {% block content %}
+    <a href="{% url 'index' %}">
+        <h1>Le site de rodims</h1>
+    </a>
 
+
+
+    {% block content %}
     {% endblock %}
 
 </body>
