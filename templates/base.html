@@ -9,10 +9,12 @@
         <h1>Le site de rodims</h1>
     </a>
 
-
+    {% if not user.is_authenticated %}
+        <a href="{% url 'singup' %}"> S'inscrire</a>
+    {% endif %}
 
     {% block content %}
     {% endblock %}
 
 </body>
-</html>
+</h
