@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1>S'inscrire</h1>
-<form action="POST">
+<form method="POST">
     {% csrf_token %}
     <p>
         <label for="username">Nom d'utilisateur</label>
