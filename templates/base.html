@@ -9,7 +9,10 @@
         <h1>Le site de rodims</h1>
     </a>
 
-    {% if not user.is_authenticated %}
+    {% if user.is_authenticated %}
+        {{ user.username }}
+        <a href="{% url 'logout' %}">Deconnexion</a>
+    {% else %}
         <a href="{% url 'singup' %}"> S'inscrire</a>
     {% endif %}
 

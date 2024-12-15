@@ -1,8 +1,8 @@
-from django.contrib.auth import get_user_model, login
+from django.contrib.auth import get_user_model, login, logout
 from django.shortcuts import render, redirect
 
 # Create your views here.
-
+#Afficher l'utilisateur connecte
 User = get_user_model()
 
 def singup(request) :
@@ -15,3 +15,7 @@ def singup(request) :
         login(request, user)
         return redirect('index')
     return render(request, 'accounts/singup.html')
+
+def logout_user(request):
+    logout(request)
+    return redirect('index')
