@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import OneToOneField, ManyToManyField
 from django.urls import reverse
 
 from shop.settings import AUTH_USER_MODEL
@@ -55,3 +56,12 @@ class Order(models.Model) :
 - Commander ou non
 - Date de la commande
 """
+class Carts(models.Model) :
+    # oOn veut que l'utilisateur n'est qu'un seul panier
+    user = OneToOneField(AUTH_USER_MODEL, on_delete=models.CASCADE)
+    orders = ManyToManyField(Order)
+    ordered = models.BooleanField(default=False)
+    ordered_date = models.DateTimeField(blank=True, null=True)
+
+    def __str__(self) :
+        return self.user.username
