@@ -29,3 +29,19 @@ class Product(models.Model) :
 
     def get_absolute_url(self):
         return reverse("product", kwargs={"slug": self.slug})
+
+
+# Article (Order)
+"""
+- Utilisateur
+- Produits 
+- Commander ou non
+"""
+
+# Panier (Card)
+"""
+- Utilisateur 
+- Articles
+- Commander ou non
+- Date de la commande
+"""
