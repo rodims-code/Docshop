@@ -1,8 +1,8 @@
 
 from django.http import HttpResponse
 
-from django.shortcuts import render, get_object_or_404, redirect, reverse
-
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from store.models import Product, Carts, Order
 
 
@@ -24,10 +24,15 @@ def add_to_cart (request, slug) :
     order, created = Order.objects.get_or_create(user=user,
                                                  product=product)
     if created :
-        cart.order.add(order)
+        cart.orders.add(order)
         cart.save()
     else:
         order.quantity += 1
         order.save()
 
     return redirect(reverse("product", kwargs={"slug":slug}))
+
+def cart (request):
+    cart = get_object_or_404(Carts, user=request.user)
+
+    return render(request, 'store/cart.html', context={"orders":cart.orders.all()})
