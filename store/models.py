@@ -56,7 +56,7 @@ class Order(models.Model) :
 - Commander ou non
 - Date de la commande
 """
-class Carts(models.Model) :
+class Cart(models.Model) :
     # oOn veut que l'utilisateur n'est qu'un seul panier
     user = OneToOneField(AUTH_USER_MODEL, on_delete=models.CASCADE)
     orders = ManyToManyField(Order)

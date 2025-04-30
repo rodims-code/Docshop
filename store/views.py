@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
-from store.models import Product, Carts, Order
+from store.models import Product, Cart, Order
 
 
 # Create your views here.
@@ -33,6 +33,6 @@ def add_to_cart (request, slug) :
     return redirect(reverse("product", kwargs={"slug":slug}))
 
 def cart (request):
-    cart = get_object_or_404(Carts, user=request.user)
+    cart = get_object_or_404(Cart, user=request.user)
 
     return render(request, 'store/cart.html', context={"orders":cart.orders.all()})
